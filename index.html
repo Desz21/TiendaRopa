@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milagros · Moda & Estilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Italiana&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --terra: #C4622D;
+      --terra-light: #F5E6D8;
+      --terra-dark: #8B3E18;
+      --sand: #F9F1E7;
+      --warm-gray: #7C6A5A;
+      --text-dark: #2C1A0E;
+    }
+    body { font-family: 'Nunito', sans-serif; background: var(--sand); color: var(--text-dark); max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; padding-bottom: 60px; }
+
+    /* NAV */
+    .nav { background: var(--terra-dark); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    .nav-logo { display: flex; flex-direction: column; gap: 1px; }
+    .nav-logo-name { font-family: 'Italiana', serif; color: #FFF8F0; font-size: 28px; letter-spacing: 3px; line-height: 1; }
+    .nav-logo-sub { font-family: 'Cormorant Garamond', serif; color: #F5C898; font-size: 11px; letter-spacing: 4px; font-weight: 400; text-transform: uppercase; }
+    .nav-tabs { display: flex; gap: 6px; }
+    .tab { padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; font-family: 'Nunito', sans-serif; }
+    .tab.active { background: #F5C898; color: var(--terra-dark); }
+    .tab:not(.active) { background: rgba(255,255,255,0.12); color: #FFF8F0; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #8B3E18 0%, #C4622D 60%, #E8A06A 100%); padding: 36px 24px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+    .hero::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; color: #FFF8F0; font-size: 28px; margin-bottom: 8px; font-weight: 600; position: relative; }
+    .hero p { color: #F5D9C0; font-size: 14px; margin-bottom: 20px; position: relative; }
+    .hero-btn { background: #FFF8F0; color: var(--terra-dark); padding: 11px 28px; border-radius: 24px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; font-family: 'Nunito', sans-serif; position: relative; }
+
+    /* SECTIONS */
+    .section { padding: 24px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--terra-dark); margin-bottom: 6px; }
+    .section-sub { font-size: 13px; color: var(--warm-gray); margin-bottom: 18px; }
+
+    /* PRODUCT GRID */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #EDD9C4; }
+    .card-img { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 42px; }
+    .card-img.women { background: #FDEBD8; }
+    .card-img.kids { background: #FFF0E0; }
+    .card-info { padding: 10px 12px; }
+    .card-name { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 16px; color: var(--text-dark); margin-bottom: 2px; }
+    .card-price { font-size: 13px; color: var(--terra); font-weight: 700; margin-bottom: 8px; }
+    .card-tag { display: inline-block; background: var(--terra-light); color: var(--terra-dark); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; }
+    .card-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 8px; padding: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Nunito', sans-serif; }
+    .card-btn:active { opacity: 0.85; }
+
+    /* FORM */
+    .form-card { background: #fff; border-radius: 16px; border: 1px solid #EDD9C4; padding: 20px; }
+    .form-row { margin-bottom: 14px; }
+    .form-row label { display: block; font-size: 13px; font-weight: 600; color: var(--warm-gray); margin-bottom: 6px; }
+    .form-row input, .form-row textarea, .form-row select {
+      width: 100%; padding: 10px 12px; border: 1px solid #EDD9C4; border-radius: 10px;
+      font-size: 14px; font-family: 'Nunito', sans-serif; color: var(--text-dark); background: var(--sand);
+      outline: none;
+    }
+    .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--terra); }
+    .form-row textarea { height: 80px; resize: none; }
+    .submit-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; }
+    .submit-btn:active { opacity: 0.85; }
+
+    /* SUCCESS */
+    .success-msg { display: none; background: #EAF7EE; border: 1px solid #B2DFC0; border-radius: 12px; padding: 16px; text-align: center; margin-top: 16px; }
+    .success-msg p { color: #2A6B3C; font-weight: 600; font-size: 14px; }
+
+    /* PAGO */
+    .pago-card { background: #fff; border-radius: 16px; border: 1px solid #EDD9C4; padding: 20px; text-align: center; }
+    .yape-badge { display: inline-block; background: #7B2D8B; color: white; border-radius: 12px; padding: 8px 20px; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+    .qr-placeholder { width: 160px; height: 160px; margin: 0 auto 14px; border: 2px dashed #EDD9C4; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--sand); }
+    /* Cuando agregues el QR real, reemplaza .qr-placeholder por una etiqueta <img> */
+    .qr-img { width: 160px; height: 160px; margin: 0 auto 14px; border-radius: 12px; display: block; }
+    .qr-text { font-size: 12px; color: var(--warm-gray); text-align: center; }
+    .pago-nombre { font-family: 'Italiana', serif; font-size: 20px; color: var(--text-dark); margin-bottom: 6px; }
+    .pago-info { font-size: 13px; color: var(--warm-gray); margin-top: 12px; line-height: 1.6; }
+
+    /* BOTTOM NAV */
+    .bottom-nav { display: flex; background: #fff; border-top: 1px solid #EDD9C4; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; z-index: 10; }
+    .bnav-item { flex: 1; padding: 12px 4px 8px; text-align: center; cursor: pointer; border: none; background: transparent; }
+    .bnav-icon { font-size: 20px; display: block; margin-bottom: 3px; }
+    .bnav-label { font-size: 11px; color: var(--warm-gray); font-family: 'Nunito', sans-serif; }
+    .bnav-item.active .bnav-label { color: var(--terra); font-weight: 700; }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="nav-logo">
+      <span class="nav-logo-name">Milagros</span>
+      <span class="nav-logo-sub">Moda &amp; Estilo</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab active" onclick="switchTab('catalogo')">Catálogo</button>
+      <button class="tab" onclick="switchTab('pedido')">Pedido</button>
+    </div>
+  </div>
+
+  <!-- CATÁLOGO -->
+  <div id="view-catalogo">
+    <div class="hero">
+      <h1>¡Bienvenida a la tienda de Milagros!</h1>
+      <p>Ropa para mujeres y niños · Precios accesibles · Envío a domicilio</p>
+      <button class="hero-btn" onclick="switchTab('pedido')">Hacer un pedido</button>
+    </div>
+    <div class="section">
+      <div class="section-title">Disponible ahora</div>
+      <div class="section-sub">Selecciona lo que te interesa y haz tu pedido</div>
+      <div class="grid">
+        <div class="card">
+          <div class="card-img women">👗</div>
+          <div class="card-info">
+            <div class="card-tag">Mujer</div>
+            <div class="card-name">Vestido floral</div>
+            <div class="card-price">S/ 55.00</div>
+            <button class="card-btn" onclick="selectProduct('Vestido floral - S/55')">Pedir</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img kids">🧒</div>
+          <div class="card-info">
+            <div class="card-tag">Niños</div>
+            <div class="card-name">Conjunto sport</div>
+            <div class="card-price">S/ 38.00</div>
+            <button class="card-btn" onclick="selectProduct('Conjunto sport niños - S/38')">Pedir</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img women">👚</div>
+          <div class="card-info">
+            <div class="card-tag">Mujer</div>
+            <div class="card-name">Blusa casual</div>
+            <div class="card-price">S/ 32.00</div>
+            <button class="card-btn" onclick="selectProduct('Blusa casual - S/32')">Pedir</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img kids">👧</div>
+          <div class="card-info">
+            <div class="card-tag">Niñas</div>
+            <div class="card-name">Vestido niña</div>
+            <div class="card-price">S/ 42.00</div>
+            <button class="card-btn" onclick="selectProduct('Vestido niña - S/42')">Pedir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PEDIDO -->
+  <div id="view-pedido" class="hidden">
+    <div class="section">
+      <div class="section-title">Hacer un pedido</div>
+      <div class="section-sub">Completa los datos y Milagros se pondrá en contacto contigo</div>
+      <div class="form-card">
+        <div class="form-row">
+          <label>Tu nombre</label>
+          <input type="text" id="input-nombre" placeholder="Ej: Rosa Díaz" />
+        </div>
+        <div class="form-row">
+          <label>Teléfono / WhatsApp</label>
+          <input type="tel" id="input-telefono" placeholder="Ej: 987 654 321" />
+        </div>
+        <div class="form-row">
+          <label>¿Qué prenda deseas?</label>
+          <input type="text" id="prenda-input" placeholder="Ej: Vestido floral talla M" />
+        </div>
+        <div class="form-row">
+          <label>Talla</label>
+          <select id="input-talla">
+            <option value="">Seleccionar talla...</option>
+            <option>XS / 2 años</option>
+            <option>S / 4 años</option>
+            <option>M / 6 años</option>
+            <option>Talla S (adulto)</option>
+            <option>Talla M (adulto)</option>
+            <option>Talla L (adulto)</option>
+            <option>Talla XL (adulto)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Mensaje adicional (opcional)</label>
+          <textarea id="input-mensaje" placeholder="Color preferido, cantidad, dirección de entrega..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="enviarPedido()">Enviar pedido ✓</button>
+        <div class="success-msg" id="success-msg">
+          <p>✅ ¡Pedido enviado! Milagros se comunicará contigo pronto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGO -->
+  <div id="view-pago" class="hidden">
+    <div class="section">
+      <div class="section-title">Método de pago</div>
+      <div class="section-sub">Paga fácil y rápido con Yape</div>
+      <div class="pago-card">
+        <div class="yape-badge">💜 Yape</div>
+
+        <!--
+          INSTRUCCIÓN PARA AGREGAR EL QR:
+          1. Guarda la imagen del QR de Yape como "qr-yape.png" en la misma carpeta que este index.html
+          2. Borra las líneas del "qr-placeholder" de abajo
+          3. Descomenta la línea con <img class="qr-img" ...>
+        -->
+        <div class="qr-placeholder">
+          <div>
+            <div style="font-size:36px;margin-bottom:8px">📱</div>
+            <div class="qr-text">QR de Yape<br>próximamente</div>
+          </div>
+        </div>
+        <!-- <img class="qr-img" src="qr-yape.png" alt="QR Yape de Milagros" /> -->
+
+        <div class="pago-nombre">Milagros</div>
+        <div class="pago-info">
+          Una vez realizado el pago, envía el comprobante por WhatsApp para confirmar tu pedido.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN INFERIOR -->
+  <div class="bottom-nav">
+    <button class="bnav-item active" id="bn-catalogo" onclick="switchTab('catalogo')">
+      <span class="bnav-icon">🛍️</span>
+      <span class="bnav-label">Catálogo</span>
+    </button>
+    <button class="bnav-item" id="bn-pedido" onclick="switchTab('pedido')">
+      <span class="bnav-icon">📝</span>
+      <span class="bnav-label">Pedido</span>
+    </button>
+    <button class="bnav-item" id="bn-pago" onclick="switchTab('pago')">
+      <span class="bnav-icon">💳</span>
+      <span class="bnav-label">Pago</span>
+    </button>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      ['catalogo', 'pedido', 'pago'].forEach(function(t) {
+        var v = document.getElementById('view-' + t);
+        if (v) v.className = t === tab ? '' : 'hidden';
+        var bn = document.getElementById('bn-' + t);
+        if (bn) bn.classList.remove('active');
+      });
+      var bn = document.getElementById('bn-' + tab);
+      if (bn) bn.classList.add('active');
+      document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+      window.scrollTo(0, 0);
+    }
+
+    function selectProduct(name) {
+      document.getElementById('prenda-input').value = name;
+      switchTab('pedido');
+    }
+
+    function enviarPedido() {
+      var nombre = document.getElementById('input-nombre').value.trim();
+      var telefono = document.getElementById('input-telefono').value.trim();
+      var prenda = document.getElementById('prenda-input').value.trim();
+      if (!nombre || !telefono || !prenda) {
+        alert('Por favor completa tu nombre, teléfono y la prenda que deseas.');
+        return;
+      }
+      document.getElementById('success-msg').style.display = 'block';
+      setTimeout(function() { switchTab('pago'); }, 1800);
+    }
+  </script>
+
+</body>
+</html>
