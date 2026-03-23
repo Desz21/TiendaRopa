@@ -17,220 +17,272 @@
       --warm-gray: #7C6A5A;
       --text-dark: #2C1A0E;
     }
-    body { font-family: 'Nunito', sans-serif; background: var(--sand); color: var(--text-dark); max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; padding-bottom: 60px; }
+    body { font-family: 'Nunito', sans-serif; background: var(--sand); color: var(--text-dark); min-height: 100vh; }
 
-    /* NAV */
-    .nav { background: var(--terra-dark); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
-    .nav-logo { display: flex; flex-direction: column; gap: 1px; }
-    .nav-logo-name { font-family: 'Italiana', serif; color: #FFF8F0; font-size: 28px; letter-spacing: 3px; line-height: 1; }
-    .nav-logo-sub { font-family: 'Cormorant Garamond', serif; color: #F5C898; font-size: 11px; letter-spacing: 4px; font-weight: 400; text-transform: uppercase; }
-    .nav-tabs { display: flex; gap: 6px; }
-    .tab { padding: 7px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; font-family: 'Nunito', sans-serif; }
+    /* ── NAV ── */
+    .nav { background: var(--terra-dark); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo-name { font-family: 'Italiana', serif; color: #FFF8F0; font-size: 30px; letter-spacing: 3px; line-height: 1; }
+    .nav-logo-sub  { font-family: 'Cormorant Garamond', serif; color: #F5C898; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; }
+    .nav-tabs { display: flex; gap: 8px; }
+    .tab { padding: 8px 18px; border-radius: 20px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; font-family: 'Nunito', sans-serif; }
     .tab.active { background: #F5C898; color: var(--terra-dark); }
     .tab:not(.active) { background: rgba(255,255,255,0.12); color: #FFF8F0; }
 
-    /* HERO */
-    .hero { background: linear-gradient(135deg, #8B3E18 0%, #C4622D 60%, #E8A06A 100%); padding: 36px 24px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,0.06); }
-    .hero::after { content: ''; position: absolute; bottom: -20px; left: -20px; width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.06); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; color: #FFF8F0; font-size: 28px; margin-bottom: 8px; font-weight: 600; position: relative; }
-    .hero p { color: #F5D9C0; font-size: 14px; margin-bottom: 20px; position: relative; }
-    .hero-btn { background: #FFF8F0; color: var(--terra-dark); padding: 11px 28px; border-radius: 24px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; font-family: 'Nunito', sans-serif; position: relative; }
+    /* ── WRAPPER ── */
+    .page-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
 
-    /* SECTIONS */
-    .section { padding: 24px; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--terra-dark); margin-bottom: 6px; }
-    .section-sub { font-size: 13px; color: var(--warm-gray); margin-bottom: 18px; }
+    /* ── HERO ── */
+    .hero { background: linear-gradient(135deg, #8B3E18 0%, #C4622D 60%, #E8A06A 100%); padding: 60px 40px; text-align: center; position: relative; overflow: hidden; border-radius: 0 0 24px 24px; }
+    .hero::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.06); }
+    .hero::after  { content:''; position:absolute; bottom:-30px; left:-30px; width:150px; height:150px; border-radius:50%; background:rgba(255,255,255,0.06); }
+    .hero h1 { font-family:'Cormorant Garamond',serif; color:#FFF8F0; font-size:38px; margin-bottom:10px; font-weight:600; position:relative; }
+    .hero p  { color:#F5D9C0; font-size:16px; margin-bottom:28px; position:relative; }
+    .hero-btn { background:#FFF8F0; color:var(--terra-dark); padding:13px 36px; border-radius:28px; font-weight:700; font-size:15px; border:none; cursor:pointer; font-family:'Nunito',sans-serif; position:relative; }
+    .hero-btn:hover { background: #EDD9C4; }
 
-    /* PRODUCT GRID */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .card { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid #EDD9C4; }
-    .card-img { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 42px; }
-    .card-img.women { background: #FDEBD8; }
-    .card-img.kids { background: #FFF0E0; }
-    .card-info { padding: 10px 12px; }
-    .card-name { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 16px; color: var(--text-dark); margin-bottom: 2px; }
-    .card-price { font-size: 13px; color: var(--terra); font-weight: 700; margin-bottom: 8px; }
-    .card-tag { display: inline-block; background: var(--terra-light); color: var(--terra-dark); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-bottom: 8px; }
-    .card-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 8px; padding: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Nunito', sans-serif; }
-    .card-btn:active { opacity: 0.85; }
+    /* ── SECTION ── */
+    .section { padding: 40px 0; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:var(--terra-dark); margin-bottom:6px; }
+    .section-sub   { font-size:14px; color:var(--warm-gray); margin-bottom:28px; }
 
-    /* FORM */
-    .form-card { background: #fff; border-radius: 16px; border: 1px solid #EDD9C4; padding: 20px; }
-    .form-row { margin-bottom: 14px; }
-    .form-row label { display: block; font-size: 13px; font-weight: 600; color: var(--warm-gray); margin-bottom: 6px; }
-    .form-row input, .form-row textarea, .form-row select {
-      width: 100%; padding: 10px 12px; border: 1px solid #EDD9C4; border-radius: 10px;
-      font-size: 14px; font-family: 'Nunito', sans-serif; color: var(--text-dark); background: var(--sand);
-      outline: none;
-    }
-    .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color: var(--terra); }
-    .form-row textarea { height: 80px; resize: none; }
-    .submit-btn { width: 100%; background: var(--terra); color: white; border: none; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Nunito', sans-serif; }
-    .submit-btn:active { opacity: 0.85; }
+    /* ── PRODUCT GRID ── */
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .card { background:#fff; border-radius:16px; overflow:hidden; border:1px solid #EDD9C4; transition: transform 0.15s, box-shadow 0.15s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(196,98,45,0.12); }
+    .card-img   { height:150px; display:flex; align-items:center; justify-content:center; font-size:54px; }
+    .card-img.women { background:#FDEBD8; }
+    .card-img.kids  { background:#FFF0E0; }
+    .card-info  { padding:14px; }
+    .card-name  { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:18px; color:var(--text-dark); margin-bottom:4px; }
+    .card-price { font-size:14px; color:var(--terra); font-weight:700; margin-bottom:10px; }
+    .card-tag   { display:inline-block; background:var(--terra-light); color:var(--terra-dark); font-size:11px; font-weight:600; padding:3px 10px; border-radius:10px; margin-bottom:10px; }
+    .card-btn   { width:100%; background:var(--terra); color:white; border:none; border-radius:10px; padding:10px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Nunito',sans-serif; }
+    .card-btn:hover { background: var(--terra-dark); }
 
-    /* SUCCESS */
-    .success-msg { display: none; background: #EAF7EE; border: 1px solid #B2DFC0; border-radius: 12px; padding: 16px; text-align: center; margin-top: 16px; }
-    .success-msg p { color: #2A6B3C; font-weight: 600; font-size: 14px; }
+    /* ── PEDIDO ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .form-card, .pago-card { background:#fff; border-radius:20px; border:1px solid #EDD9C4; padding:32px; }
+    .form-card h2, .pago-card h2 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:var(--terra-dark); margin-bottom:4px; }
+    .subtitle { font-size:13px; color:var(--warm-gray); margin-bottom:24px; }
+    .form-row { margin-bottom:16px; }
+    .form-row label { display:block; font-size:13px; font-weight:600; color:var(--warm-gray); margin-bottom:6px; }
+    .form-row input, .form-row textarea, .form-row select { width:100%; padding:11px 14px; border:1px solid #EDD9C4; border-radius:12px; font-size:14px; font-family:'Nunito',sans-serif; color:var(--text-dark); background:var(--sand); outline:none; }
+    .form-row input:focus, .form-row textarea:focus, .form-row select:focus { border-color:var(--terra); }
+    .form-row textarea { height:90px; resize:none; }
+
+    .submit-btn { width:100%; background:var(--terra); color:white; border:none; border-radius:14px; padding:15px; font-size:15px; font-weight:700; cursor:pointer; font-family:'Nunito',sans-serif; margin-bottom:12px; }
+    .submit-btn:hover { background:var(--terra-dark); }
+    .submit-btn:disabled { background:#ccc; cursor:not-allowed; }
+
+    /* WhatsApp button */
+    .wa-btn { width:100%; background:#25D366; color:white; border:none; border-radius:14px; padding:13px 15px; font-size:14px; font-weight:700; cursor:pointer; font-family:'Nunito',sans-serif; display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; }
+    .wa-btn:hover { background:#1ebe5d; }
+    .wa-icon { width:20px; height:20px; fill:white; flex-shrink:0; }
+
+    .success-msg { display:none; background:#EAF7EE; border:1px solid #B2DFC0; border-radius:12px; padding:16px; text-align:center; margin-bottom:14px; }
+    .success-msg p { color:#2A6B3C; font-weight:600; font-size:14px; }
+    .error-msg { display:none; background:#FDECEA; border:1px solid #F5C0BE; border-radius:12px; padding:12px 16px; text-align:center; margin-bottom:14px; }
+    .error-msg p { color:#9B2620; font-weight:600; font-size:13px; }
 
     /* PAGO */
-    .pago-card { background: #fff; border-radius: 16px; border: 1px solid #EDD9C4; padding: 20px; text-align: center; }
-    .yape-badge { display: inline-block; background: #7B2D8B; color: white; border-radius: 12px; padding: 8px 20px; font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-    .qr-placeholder { width: 160px; height: 160px; margin: 0 auto 14px; border: 2px dashed #EDD9C4; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--sand); }
-    /* Cuando agregues el QR real, reemplaza .qr-placeholder por una etiqueta <img> */
-    .qr-img { width: 160px; height: 160px; margin: 0 auto 14px; border-radius: 12px; display: block; }
-    .qr-text { font-size: 12px; color: var(--warm-gray); text-align: center; }
-    .pago-nombre { font-family: 'Italiana', serif; font-size: 20px; color: var(--text-dark); margin-bottom: 6px; }
-    .pago-info { font-size: 13px; color: var(--warm-gray); margin-top: 12px; line-height: 1.6; }
+    .yape-badge { display:inline-block; background:#7B2D8B; color:white; border-radius:12px; padding:8px 22px; font-size:14px; font-weight:700; margin-bottom:20px; }
+    .qr-placeholder { width:180px; height:180px; margin:0 auto 16px; border:2px dashed #EDD9C4; border-radius:16px; display:flex; align-items:center; justify-content:center; background:var(--sand); }
+    .qr-img  { width:180px; height:180px; margin:0 auto 16px; border-radius:16px; display:block; }
+    .qr-text { font-size:13px; color:var(--warm-gray); text-align:center; }
+    .pago-nombre { font-family:'Italiana',serif; font-size:22px; color:var(--text-dark); margin-bottom:8px; text-align:center; }
+    .pago-info   { font-size:13px; color:var(--warm-gray); line-height:1.7; text-align:center; }
 
-    /* BOTTOM NAV */
-    .bottom-nav { display: flex; background: #fff; border-top: 1px solid #EDD9C4; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; z-index: 10; }
-    .bnav-item { flex: 1; padding: 12px 4px 8px; text-align: center; cursor: pointer; border: none; background: transparent; }
-    .bnav-icon { font-size: 20px; display: block; margin-bottom: 3px; }
-    .bnav-label { font-size: 11px; color: var(--warm-gray); font-family: 'Nunito', sans-serif; }
-    .bnav-item.active .bnav-label { color: var(--terra); font-weight: 700; }
+    /* ── BOTTOM NAV ── */
+    .bottom-nav { display:none; background:#fff; border-top:1px solid #EDD9C4; position:fixed; bottom:0; left:0; right:0; z-index:100; }
+    .bnav-item  { flex:1; padding:12px 4px 8px; text-align:center; cursor:pointer; border:none; background:transparent; }
+    .bnav-icon  { font-size:20px; display:block; margin-bottom:3px; }
+    .bnav-label { font-size:11px; color:var(--warm-gray); font-family:'Nunito',sans-serif; }
+    .bnav-item.active .bnav-label { color:var(--terra); font-weight:700; }
 
-    .hidden { display: none; }
+    .hidden { display:none !important; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav { padding: 12px 16px; }
+      .nav-logo-name { font-size: 24px; }
+      .nav-tabs { display: none; }
+      .page-wrapper { padding: 0 0 72px; }
+      .hero { padding: 36px 20px; border-radius: 0; }
+      .hero h1 { font-size: 24px; }
+      .section { padding: 20px 16px; }
+      .grid { gap: 12px; }
+      .card-img { height: 110px; font-size: 40px; }
+      .two-col { padding: 0 16px; gap: 20px; }
+      .form-card, .pago-card { padding: 20px; border-radius: 16px; }
+      .bottom-nav { display: flex; }
+    }
   </style>
 </head>
 <body>
 
   <div class="nav">
     <div class="nav-logo">
-      <span class="nav-logo-name">Milagros</span>
-      <span class="nav-logo-sub">Moda &amp; Estilo</span>
+      <div class="nav-logo-name">Milagros</div>
+      <div class="nav-logo-sub">Moda &amp; Estilo</div>
     </div>
     <div class="nav-tabs">
-      <button class="tab active" onclick="switchTab('catalogo')">Catálogo</button>
-      <button class="tab" onclick="switchTab('pedido')">Pedido</button>
+      <button class="tab active" id="tab-catalogo" onclick="switchTab('catalogo')">Catálogo</button>
+      <button class="tab" id="tab-pedido" onclick="switchTab('pedido')">Pedido</button>
     </div>
   </div>
 
-  <!-- CATÁLOGO -->
+  <!-- ══ CATÁLOGO ══ -->
   <div id="view-catalogo">
     <div class="hero">
       <h1>¡Bienvenida a la tienda de Milagros!</h1>
       <p>Ropa para mujeres y niños · Precios accesibles · Envío a domicilio</p>
-      <button class="hero-btn" onclick="switchTab('pedido')">Hacer un pedido</button>
+      <button class="hero-btn" onclick="switchTab('catalogo')">Ver catálogo</button>
     </div>
-    <div class="section">
-      <div class="section-title">Disponible ahora</div>
-      <div class="section-sub">Selecciona lo que te interesa y haz tu pedido</div>
-      <div class="grid">
-        <div class="card">
-          <div class="card-img women">👗</div>
-          <div class="card-info">
-            <div class="card-tag">Mujer</div>
-            <div class="card-name">Vestido floral</div>
-            <div class="card-price">S/ 55.00</div>
-            <button class="card-btn" onclick="selectProduct('Vestido floral - S/55')">Pedir</button>
+    <div class="page-wrapper">
+      <div class="section">
+        <div class="section-title">Disponible ahora</div>
+        <div class="section-sub">Elige una prenda para hacer tu pedido</div>
+        <div class="grid">
+
+          <div class="card">
+            <div class="card-img women">👗</div>
+            <div class="card-info">
+              <div class="card-tag">Mujer</div>
+              <div class="card-name">Vestido floral</div>
+              <div class="card-price">S/ 55.00</div>
+              <button class="card-btn" onclick="elegirProducto('Vestido floral', 'S/ 55.00')">Pedir esta prenda</button>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-img kids">🧒</div>
-          <div class="card-info">
-            <div class="card-tag">Niños</div>
-            <div class="card-name">Conjunto sport</div>
-            <div class="card-price">S/ 38.00</div>
-            <button class="card-btn" onclick="selectProduct('Conjunto sport niños - S/38')">Pedir</button>
+
+          <div class="card">
+            <div class="card-img kids">🧒</div>
+            <div class="card-info">
+              <div class="card-tag">Niños</div>
+              <div class="card-name">Conjunto sport</div>
+              <div class="card-price">S/ 38.00</div>
+              <button class="card-btn" onclick="elegirProducto('Conjunto sport niños', 'S/ 38.00')">Pedir esta prenda</button>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-img women">👚</div>
-          <div class="card-info">
-            <div class="card-tag">Mujer</div>
-            <div class="card-name">Blusa casual</div>
-            <div class="card-price">S/ 32.00</div>
-            <button class="card-btn" onclick="selectProduct('Blusa casual - S/32')">Pedir</button>
+
+          <div class="card">
+            <div class="card-img women">👚</div>
+            <div class="card-info">
+              <div class="card-tag">Mujer</div>
+              <div class="card-name">Blusa casual</div>
+              <div class="card-price">S/ 32.00</div>
+              <button class="card-btn" onclick="elegirProducto('Blusa casual', 'S/ 32.00')">Pedir esta prenda</button>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-img kids">👧</div>
-          <div class="card-info">
-            <div class="card-tag">Niñas</div>
-            <div class="card-name">Vestido niña</div>
-            <div class="card-price">S/ 42.00</div>
-            <button class="card-btn" onclick="selectProduct('Vestido niña - S/42')">Pedir</button>
+
+          <div class="card">
+            <div class="card-img kids">👧</div>
+            <div class="card-info">
+              <div class="card-tag">Niñas</div>
+              <div class="card-name">Vestido niña</div>
+              <div class="card-price">S/ 42.00</div>
+              <button class="card-btn" onclick="elegirProducto('Vestido niña', 'S/ 42.00')">Pedir esta prenda</button>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PEDIDO -->
+  <!-- ══ PEDIDO ══ -->
   <div id="view-pedido" class="hidden">
-    <div class="section">
-      <div class="section-title">Hacer un pedido</div>
-      <div class="section-sub">Completa los datos y Milagros se pondrá en contacto contigo</div>
-      <div class="form-card">
-        <div class="form-row">
-          <label>Tu nombre</label>
-          <input type="text" id="input-nombre" placeholder="Ej: Rosa Díaz" />
-        </div>
-        <div class="form-row">
-          <label>Teléfono / WhatsApp</label>
-          <input type="tel" id="input-telefono" placeholder="Ej: 987 654 321" />
-        </div>
-        <div class="form-row">
-          <label>¿Qué prenda deseas?</label>
-          <input type="text" id="prenda-input" placeholder="Ej: Vestido floral talla M" />
-        </div>
-        <div class="form-row">
-          <label>Talla</label>
-          <select id="input-talla">
-            <option value="">Seleccionar talla...</option>
-            <option>XS / 2 años</option>
-            <option>S / 4 años</option>
-            <option>M / 6 años</option>
-            <option>Talla S (adulto)</option>
-            <option>Talla M (adulto)</option>
-            <option>Talla L (adulto)</option>
-            <option>Talla XL (adulto)</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label>Mensaje adicional (opcional)</label>
-          <textarea id="input-mensaje" placeholder="Color preferido, cantidad, dirección de entrega..."></textarea>
-        </div>
-        <button class="submit-btn" onclick="enviarPedido()">Enviar pedido ✓</button>
-        <div class="success-msg" id="success-msg">
-          <p>✅ ¡Pedido enviado! Milagros se comunicará contigo pronto.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="page-wrapper">
+      <div class="section">
+        <div class="two-col">
 
-  <!-- PAGO -->
-  <div id="view-pago" class="hidden">
-    <div class="section">
-      <div class="section-title">Método de pago</div>
-      <div class="section-sub">Paga fácil y rápido con Yape</div>
-      <div class="pago-card">
-        <div class="yape-badge">💜 Yape</div>
+          <!-- Formulario -->
+          <div class="form-card">
+            <h2>Hacer un pedido</h2>
+            <div class="subtitle">Completa los datos y te contactaremos por WhatsApp</div>
 
-        <!--
-          INSTRUCCIÓN PARA AGREGAR EL QR:
-          1. Guarda la imagen del QR de Yape como "qr-yape.png" en la misma carpeta que este index.html
-          2. Borra las líneas del "qr-placeholder" de abajo
-          3. Descomenta la línea con <img class="qr-img" ...>
-        -->
-        <div class="qr-placeholder">
-          <div>
-            <div style="font-size:36px;margin-bottom:8px">📱</div>
-            <div class="qr-text">QR de Yape<br>próximamente</div>
+            <div class="form-row">
+              <label>Prenda seleccionada</label>
+              <input type="text" id="input-prenda" readonly style="background:#F5E6D8;font-weight:600;color:var(--terra-dark);" />
+            </div>
+            <div class="form-row">
+              <label>Precio</label>
+              <input type="text" id="input-precio" readonly style="background:#F5E6D8;font-weight:600;color:var(--terra-dark);" />
+            </div>
+            <div class="form-row">
+              <label>Tu nombre completo</label>
+              <input type="text" id="input-nombre" placeholder="Ej: Rosa Díaz" />
+            </div>
+            <div class="form-row">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" id="input-telefono" placeholder="Ej: 987 654 321" />
+            </div>
+            <div class="form-row">
+              <label>Talla</label>
+              <select id="input-talla">
+                <option value="">Seleccionar talla...</option>
+                <option>XS / 2 años</option>
+                <option>S / 4 años</option>
+                <option>M / 6 años</option>
+                <option>Talla S (adulto)</option>
+                <option>Talla M (adulto)</option>
+                <option>Talla L (adulto)</option>
+                <option>Talla XL (adulto)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>Mensaje adicional (opcional)</label>
+              <textarea id="input-mensaje" placeholder="Color preferido, cantidad, dirección de entrega..."></textarea>
+            </div>
+
+            <div class="error-msg" id="error-msg"><p id="error-text"></p></div>
+            <div class="success-msg" id="success-msg"><p>✅ ¡Pedido enviado! Milagros se comunicará contigo pronto.</p></div>
+
+            <button class="submit-btn" id="submit-btn" onclick="enviarPedido()">Enviar pedido ✓</button>
+
+            <a id="wa-contacto" class="wa-btn" href="#" target="_blank" style="display:none;">
+              <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Confirmar pedido por WhatsApp
+            </a>
+
+            <button onclick="switchTab('catalogo')" style="width:100%;background:transparent;border:1px solid #EDD9C4;border-radius:14px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;color:var(--warm-gray);font-family:'Nunito',sans-serif;margin-top:10px;">
+              ← Volver al catálogo
+            </button>
           </div>
-        </div>
-        <!-- <img class="qr-img" src="qr-yape.png" alt="QR Yape de Milagros" /> -->
 
-        <div class="pago-nombre">Milagros</div>
-        <div class="pago-info">
-          Una vez realizado el pago, envía el comprobante por WhatsApp para confirmar tu pedido.
+          <!-- Pago -->
+          <div class="pago-card" id="pago-card">
+            <h2>Método de pago</h2>
+            <div class="subtitle">Paga fácil y rápido con Yape</div>
+            <div style="text-align:center;">
+              <div class="yape-badge">💜 Yape</div>
+              <!--
+                PARA AGREGAR EL QR:
+                1. Guarda tu imagen como "qr-yape.png" en la misma carpeta
+                2. Borra el bloque .qr-placeholder
+                3. Descomenta la línea <img ...>
+              -->
+              <div class="qr-placeholder">
+                <div>
+                  <div style="font-size:38px;margin-bottom:8px">📱</div>
+                  <div class="qr-text">QR de Yape<br>próximamente</div>
+                </div>
+              </div>
+              <!-- <img class="qr-img" src="qr-yape.png" alt="QR Yape de Milagros" /> -->
+              <div class="pago-nombre">Milagros</div>
+              <div class="pago-info">Escanea el QR con tu app de Yape y envía el comprobante por WhatsApp para confirmar tu pedido.</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <!-- NAVEGACIÓN INFERIOR -->
+  <!-- ══ BOTTOM NAV ══ -->
   <div class="bottom-nav">
     <button class="bnav-item active" id="bn-catalogo" onclick="switchTab('catalogo')">
       <span class="bnav-icon">🛍️</span>
@@ -238,43 +290,123 @@
     </button>
     <button class="bnav-item" id="bn-pedido" onclick="switchTab('pedido')">
       <span class="bnav-icon">📝</span>
-      <span class="bnav-label">Pedido</span>
-    </button>
-    <button class="bnav-item" id="bn-pago" onclick="switchTab('pago')">
-      <span class="bnav-icon">💳</span>
-      <span class="bnav-label">Pago</span>
+      <span class="bnav-label">Mi pedido</span>
     </button>
   </div>
 
   <script>
+    // ── Número de WhatsApp de Milagros ──
+    var WA_NUMBER = '51979364409';
+
+    // ── URL del Google Apps Script (reemplaza luego) ──
+    var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbym5LzrHaTqBzhvaBkvcyN4omPUtIyYHJwHlQ4mWtKqvjHZ0NrXP2lI0LRtSB1OFlkQ/exec';
+
+    var productoActual = '';
+    var precioActual   = '';
+
+    function elegirProducto(nombre, precio) {
+      productoActual = nombre;
+      precioActual   = precio;
+      document.getElementById('input-prenda').value = nombre;
+      document.getElementById('input-precio').value = precio;
+      document.getElementById('success-msg').style.display = 'none';
+      document.getElementById('error-msg').style.display   = 'none';
+      document.getElementById('wa-contacto').style.display = 'none';
+      document.getElementById('submit-btn').style.display  = 'block';
+      document.getElementById('submit-btn').disabled = false;
+      switchTab('pedido');
+    }
+
     function switchTab(tab) {
-      ['catalogo', 'pedido', 'pago'].forEach(function(t) {
+      ['catalogo','pedido'].forEach(function(t) {
         var v = document.getElementById('view-' + t);
         if (v) v.className = t === tab ? '' : 'hidden';
         var bn = document.getElementById('bn-' + t);
         if (bn) bn.classList.remove('active');
+        var tb = document.getElementById('tab-' + t);
+        if (tb) tb.classList.remove('active');
       });
       var bn = document.getElementById('bn-' + tab);
       if (bn) bn.classList.add('active');
-      document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-      window.scrollTo(0, 0);
-    }
-
-    function selectProduct(name) {
-      document.getElementById('prenda-input').value = name;
-      switchTab('pedido');
+      var tb = document.getElementById('tab-' + tab);
+      if (tb) tb.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function enviarPedido() {
-      var nombre = document.getElementById('input-nombre').value.trim();
+      var nombre   = document.getElementById('input-nombre').value.trim();
       var telefono = document.getElementById('input-telefono').value.trim();
-      var prenda = document.getElementById('prenda-input').value.trim();
-      if (!nombre || !telefono || !prenda) {
-        alert('Por favor completa tu nombre, teléfono y la prenda que deseas.');
+      var talla    = document.getElementById('input-talla').value;
+      var mensaje  = document.getElementById('input-mensaje').value.trim();
+      var prenda   = document.getElementById('input-prenda').value;
+      var precio   = document.getElementById('input-precio').value;
+
+      document.getElementById('error-msg').style.display = 'none';
+
+      if (!nombre || !telefono || !talla) {
+        document.getElementById('error-text').textContent = 'Por favor completa tu nombre, teléfono y talla.';
+        document.getElementById('error-msg').style.display = 'block';
         return;
       }
-      document.getElementById('success-msg').style.display = 'block';
-      setTimeout(function() { switchTab('pago'); }, 1800);
+
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      var fecha = new Date().toLocaleString('es-PE', { timeZone: 'America/Lima' });
+
+      // ── 1. Guardar en Google Sheets ──
+      var datos = {
+        fecha:    fecha,
+        nombre:   nombre,
+        telefono: telefono,
+        prenda:   prenda,
+        precio:   precio,
+        talla:    talla,
+        mensaje:  mensaje || '—'
+      };
+
+      var guardarPromise;
+      if (SHEETS_URL && SHEETS_URL !== 'PEGAR_URL_DEL_APPS_SCRIPT_AQUI') {
+        guardarPromise = fetch(SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos)
+        }).catch(function() {});
+      } else {
+        guardarPromise = Promise.resolve();
+      }
+
+      guardarPromise.then(function() {
+        // ── 2. Abrir WhatsApp con el resumen del pedido ──
+        var textoWA = '🛍️ *Nuevo pedido - Tienda Milagros*\n\n'
+          + '👤 *Cliente:* ' + nombre + '\n'
+          + '📞 *Teléfono:* ' + telefono + '\n'
+          + '👗 *Prenda:* ' + prenda + '\n'
+          + '💰 *Precio:* ' + precio + '\n'
+          + '📏 *Talla:* ' + talla + '\n'
+          + (mensaje ? '📝 *Nota:* ' + mensaje + '\n' : '')
+          + '\n🕐 ' + fecha;
+
+        var urlWA = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(textoWA);
+
+        // Mostrar éxito
+        document.getElementById('success-msg').style.display = 'block';
+        btn.style.display = 'none';
+
+        // Mostrar botón de confirmación por WhatsApp
+        var waBtn = document.getElementById('wa-contacto');
+        waBtn.href = urlWA;
+        waBtn.style.display = 'flex';
+
+        // Scroll al pago en desktop
+        if (window.innerWidth > 600) {
+          setTimeout(function() {
+            document.getElementById('pago-card').scrollIntoView({ behavior:'smooth', block:'nearest' });
+          }, 400);
+        }
+      });
     }
   </script>
 
